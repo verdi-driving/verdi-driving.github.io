@@ -161,15 +161,40 @@
         While autonomous driving (AD) stacks struggle with decision making under partial observability and real-world complexity, human drivers are capable of applying commonsense reasoning to make near-optimal decisions with limited information. Recent work has attempted to leverage finetuned Vision-Language Models (VLMs) for trajectory planning at inference time to emulate human behavior. Despite their success in benchmark evaluations, these methods are often impractical to deploy (a 70B parameter VLM inference at merely 8 tokens per second requires more than 160G of memory), and their monolithic network structure prohibits safety decomposition. To bridge this gap, we propose VLM-Embedded Reasoning for autonomous DrIving (VERDI), a training-time framework that distills the reasoning process and commonsense knowledge of VLMs into the AD stack. VERDI augments modular differentiable end-to-end (e2e) AD models by aligning intermediate module outputs at the perception, prediction, and planning stages with text features explaining the driving reasoning process produced by VLMs. By encouraging alignment in latent space, VERDI enables the modular AD stack to internalize structured reasoning, without incurring the inference-time costs of large VLMs. We demonstrate the effectiveness of our method on the NuScenes dataset and find that VERDI outperforms existing e2e methods that do not embed reasoning by 10% in in \( \ell_2 \) distance, while maintaining high inference speed.
       </p>
       <br>
-      <video id="summary-video" class="shadow" controls preload="metadata" width="100%" poster="static/thumbnails/talk_video.jpg"> <!--TODO: update-->
-        <source src="static/videos/talk_video.mp4" type="video/mp4" /> <!--TODO: update-->
+      <video id="summary-video" class="shadow" controls preload="metadata" width="100%" poster="static/video.png">
+        <source src="static/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
   </section>
 
+<!-- ==== Approach ==== -->
+<section id="approach" class="section">
+  <div class="container is-max-desktop content-container has-text-centered">
+    <h2 class="title is-3 has-text-centered">Approach</h2>
+    <p style="margin-top:0rem;">We align language features acquired from the VLM reasoning module with driving features acquired from the e2e driving model. Specifically, we do so for each of the perception, prediction, and planning submodules to effectively embed the VLM reasoning process into the e2e model.</p>
+  </div>
+</section>
+
  
 <!--TODO: paste in our code?-->
+
+
+
+<!-- ===== Results video ==== -->
+<section id="results" class="section">
+  <div class="container is-max-desktop content-container has-text-centered">
+    <h2 class="title is-3 has-text-centered">Experiments</h2>
+    <video class="overview-video" autoplay loop muted playsinline poster="static/results.png">
+      <source src="static/results.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p style="margin-top:0rem;">We show superior performance against our direct baseline <strong>VAD</strong>, a supervised e2e model without embedded reasoning. The video shows the multi-view camera observations on the left and the BEV view on the right. Each of the example shows our successful performance on the <strong>perception, prediction, and planning</strong> modules. We also show the VLM text response for each testing case to demonstrate that VERDI has successfully distilled VLM's reasoning and commonsense knowledge.</p>
+  </div>
+</section>
+
+
+<!-- ===== Table of results ===== -->
 <style>
   table {
     border-collapse: collapse;
@@ -207,16 +232,8 @@
     .midrule {
     border-top: 1px solid black;
   }
-
-  .blue {
-    color: blue;
-    font-weight: bold;
-  }
   .bold {
     font-weight: bold;
-  }
-  .ref {
-    color: red;
   }
 </style>
 
@@ -295,12 +312,18 @@
   </tr>
 </table>
 
+<section id="results" class="section">
+  <div class="container is-max-desktop content-container has-text-centered">
+    <p style="margin-top:0rem;">Our method performs <strong>10%</strong> better than the direct baseline VAD. Methods are compared according to: (1) Whether a VLM is required at inference; (2) Inference speed (<strong>FPS</strong>); (3) <strong>Trajectory accuracy</strong>, measured as the \( \ell_{2} \) distance to the expert trajectory at 1s, 2s, and 3s horizon; and (4) Whether precise historical <strong>ego-vehicle state</strong> is used in planning. In a fair comparison with methods not having privileged access to ego status, including location, VERDI achieves the best performance across all metrics.</p>
+  </div>
+</section>
 
-  <section class="section" id="BibTeX">
+<!-- ===== BIBTEX ===== -->
+<section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@misc{
-  }</code></pre> <!--TODO-->
+  }</code></pre> <!--TODO: bibtex-->
     </div>
   </section>
   <br>
