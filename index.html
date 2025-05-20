@@ -104,13 +104,13 @@
         <!-- ===== AUTHORS (three rows, no underscores) ===== -->
         <div class="is-size-5 publication-authors">
           <div>
-            <span class="author-block"><a href="https://lihzha.github.io/">Bowen&nbsp;Feng*</a></span>, <!-- TODO: update websites ===== -->
-            <span class="author-block"><a href="https://abadithela.github.io/">Zhiting&nbsp;Mei*</a></span>,
-            <span class="author-block"><a href="https://abadithela.github.io/">Baiang&nbsp;Li*</a></span>,
-            <span class="author-block"><a href="https://www.linkedin.com/in/michael-zhang-47a954241/">Julian&nbsp;Ost</a></span>,
-            <span class="author-block"><a href="https://jlidard.github.io/">Roger&nbsp;Girgis</a></span>,
+            <span class="author-block"><a href="https://fengb2-coder.github.io/">Bowen&nbsp;Feng*</a></span>, <!-- TODO: update websites ===== -->
+            <span class="author-block"><a href="https://may0mei.github.io/">Zhiting&nbsp;Mei*</a></span>,
+            <span class="author-block"><a href="https://ztmotalee.github.io/">Baiang&nbsp;Li</a></span>,
+            <span class="author-block"><a href="https://www.ostjul.com/">Julian&nbsp;Ost</a></span>,
+            <span class="author-block"><a href="https://ca.linkedin.com/in/roger-girgis-a46b959b">Roger&nbsp;Girgis</a></span>,
             <span class="author-block"><a href="https://irom-lab.princeton.edu/majumdar/">Anirudha&nbsp;Majumdar</a></span>,
-            <span class="author-block"><a href="https://irom-lab.princeton.edu/majumdar/">Felix&nbsp;Heide</a></span>
+            <span class="author-block"><a href="https://www.cs.princeton.edu/~fheide/">Felix&nbsp;Heide</a></span>
           </div>
         </div>
 
@@ -178,6 +178,45 @@
 
  
 <!--TODO: paste in our code?-->
+
+
+<!-- ==== Vlm Reasoning Texts ==== -->
+<section id="vlm reasoning" class="section">
+  <div class="container is-max-desktop content-container has-text-centered">
+    <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h3>
+    <p style="margin-top:0rem;">To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.
+
+      For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed. For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions.
+      
+      After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
+  </div>
+</section>
+
+<!-- ==== VLM Reasoning Image ==== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <figure class="image is-16by9">
+      <img src="static/e2e.png" alt="VLM Reasoning Diagram">
+    </figure>
+  </div>
+</section>
+
+<!-- ==== Vlm Prompt Texts ==== -->
+<section id="vlm prompt" class="section">
+  <div class="container is-max-desktop content-container has-text-centered">
+    <h2 class="title is-4 has-text-centered">Aligning with the e2e Model</h3>
+    <p style="margin-top:0rem;">To obtain driving features, we introduce a learnable Progressive Feature Projector (PFP) to each of the perception, prediction, and planning submodules. The PFPs map driving features to the same latent space as the language features, and align them with a cosine similarity loss.</p>
+  </div>
+</section>
+
+<!-- ==== VLM Prompt Image ==== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <figure class="image is-16by9">
+      <img src="static/prompt.png" alt="VLM Reasoning Diagram">
+    </figure>
+  </div>
+</section>
 
 
 
