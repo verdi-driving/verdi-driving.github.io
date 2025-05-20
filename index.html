@@ -144,7 +144,7 @@
 
   <!-- ===== OVERVIEW ===== -->
   <section id="overview" class="section">
-    <div class="container is-max-desktop content-container has-text-centered">
+    <div class="container is-max-desktop content-container has-text-centered" style="padding-top:-8rem">
       <video class="overview-video" autoplay loop muted playsinline poster="static/anchor.png">
         <source src="static/Anchor.mov" type="video/mp4" />
         Your browser does not support the video tag.
@@ -170,14 +170,36 @@
 
 <!-- ==== Approach ==== -->
 <section id="approach" class="section">
-  <div class="container is-max-desktop content-container has-text-centered">
+  <div class="container is-max-desktop content-container">
     <h2 class="title is-3 has-text-centered">Approach</h2>
     <p style="margin-top:0rem;">We align language features acquired from the VLM reasoning module with driving features acquired from the e2e driving model. Specifically, we do so for each of the perception, prediction, and planning submodules to effectively embed the VLM reasoning process into the e2e model.</p>
   </div>
 </section>
 
+<!-- ==== Vlm Reasoning Module (Side-by-Side) ==== -->
+<section id="vlm-reasoning" class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h2>
+    <div class="columns is-vcentered">
+      <div class="column is-5 content-container">
+        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.
+
+          For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed. For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions.
+          
+          After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
+      </div>
+      <div class="column is-7">
+        <figure class="image">
+          <img src="static/prompt.png" alt="VLM Reasoning Diagram" style="width: 100%; max-width: 600px; margin: 0 auto;">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ==== Vlm Reasoning Texts ==== -->
-<section id="vlm reasoning" class="section">
+<!-- <section id="vlm reasoning" class="section">
   <div class="container is-max-desktop content-container has-text-centered">
     <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h3>
     <p style="margin-top:0rem;">To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.
@@ -186,20 +208,20 @@
       
       After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
   </div>
-</section>
+</section> -->
 
 <!-- ==== VLM Prompt Image ==== -->
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <figure class="image">
       <img src="static/prompt.png" alt="VLM Reasoning Diagram">
     </figure>
   </div>
-</section>
+</section> -->
 
 <!-- ==== Driving feature ==== -->
 <section id="e2e" class="section">
-  <div class="container is-max-desktop content-container has-text-centered">
+  <div class="container is-max-desktop content-container">
     <h2 class="title is-4 has-text-centered">Aligning with the e2e Model</h3>
     <p style="margin-top:0rem;">To obtain driving features, we introduce a learnable Progressive Feature Projector (PFP) to each of the perception, prediction, and planning submodules. The PFPs map driving features to the same latent space as the language features, and align them with a cosine similarity loss.</p>
   </div>
@@ -214,7 +236,7 @@
 
 <!-- ===== Results video ==== -->
 <section id="results" class="section">
-  <div class="container is-max-desktop content-container has-text-centered">
+  <div class="container is-max-desktop content-container">
     <h2 class="title is-3 has-text-centered">Experiments</h2>
     <video class="overview-video" autoplay loop muted playsinline poster="static/results.png">
       <source src="static/results.mp4" type="video/mp4" />
@@ -344,7 +366,7 @@
 </table>
 
 <section id="results" class="section">
-  <div class="container is-max-desktop content-container has-text-centered">
+  <div class="container is-max-desktop content-container">
     <p style="margin-top:0rem;">Our method performs <strong>10%</strong> better than the direct baseline VAD. Methods are compared according to: (1) Whether a VLM is required at inference; (2) Inference speed (<strong>FPS</strong>); (3) <strong>Trajectory accuracy</strong>, measured as the \( \ell_{2} \) distance to the expert trajectory at 1s, 2s, and 3s horizon; and (4) Whether precise historical <strong>ego-vehicle state</strong> is used in planning. In a fair comparison with methods not having privileged access to ego status, including location, VERDI achieves the best performance across all metrics.</p>
   </div>
 </section>
