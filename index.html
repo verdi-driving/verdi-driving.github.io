@@ -31,8 +31,8 @@
     .publication-authors a:hover{text-decoration:underline;}
 
     /* --- HERO & SPACING TWEAKS --- */
-    .hero{padding-bottom:0.5rem;} /* tighter gap above overview */
-    #overview.section{padding-top:0.75rem;} /* tighter gap below hero */
+    .hero{padding-bottom:0.0rem;} /* tighter gap above overview */
+    #overview.section{padding-top:0.0rem;} /* tighter gap below hero */
     .publication-links{margin-top:1.5rem;margin-bottom:1.5rem;} /* gap between authors/icons & icons/logo */
     figure.lab-logo{margin-top:1.5rem;} /* gap between icons and Princeton logo */
     /* #sim-robot.section{padding-bottom:0.1rem;} gap above simulation section */
@@ -181,19 +181,17 @@
   <div class="container is-max-desktop">
     <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h2>
     <div class="columns is-vcentered">
-      <div class="column is-5 content-container">
-        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.
-
-          For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed. For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions.
-          
-          After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
+      <div class="column is-4 content-container">
+        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.<br> <br>
+          For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed.</p>
       </div>
-      <div class="column is-7">
+      <div class="column is-8">
         <figure class="image">
-          <img src="static/prompt.png" alt="VLM Reasoning Diagram" style="width: 100%; max-width: 600px; margin: 0 auto;">
+          <img src="static/prompt.png" alt="VLM Reasoning Diagram" style="width: 100%; max-width: 750px; margin: 0 auto;">
         </figure>
       </div>
     </div>
+    <p>For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions. After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
   </div>
 </section>
 
