@@ -182,7 +182,8 @@
     <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h2>
     <div class="columns is-vcentered">
       <div class="column is-4 content-container">
-        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.<br> <br>
+        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior. <br>
+        <br>
           For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed.</p>
       </div>
       <div class="column is-8">
@@ -191,7 +192,7 @@
         </figure>
       </div>
     </div>
-    <p>For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions. After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
+    <p style="margin: top -10px;">For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions. After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
   </div>
 </section>
 
