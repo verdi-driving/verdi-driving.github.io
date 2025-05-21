@@ -144,7 +144,7 @@
 
   <!-- ===== OVERVIEW ===== -->
   <section id="overview" class="section">
-    <div class="container is-max-desktop content-container has-text-centered" style="padding-top:-8rem">
+    <div class="container is-max-desktop content-container has-text-centered" style="margin-top:-3rem">
       <video class="overview-video" autoplay loop muted playsinline poster="static/anchor.png">
         <source src="static/Anchor.mov" type="video/mp4" />
         Your browser does not support the video tag.
@@ -158,7 +158,7 @@
     <div class="container is-max-desktop content-container">
       <h2 class="title is-3 has-text-centered">Abstract</h2>
       <p>
-        While autonomous driving (AD) stacks struggle with decision making under partial observability and real-world complexity, human drivers are capable of applying commonsense reasoning to make near-optimal decisions with limited information. Recent work has attempted to leverage finetuned Vision-Language Models (VLMs) for trajectory planning at inference time to emulate human behavior. Despite their success in benchmark evaluations, these methods are often impractical to deploy (a 70B parameter VLM inference at merely 8 tokens per second requires more than 160G of memory), and their monolithic network structure prohibits safety decomposition. To bridge this gap, we propose VLM-Embedded Reasoning for autonomous DrIving (VERDI), a training-time framework that distills the reasoning process and commonsense knowledge of VLMs into the AD stack. VERDI augments modular differentiable end-to-end (e2e) AD models by aligning intermediate module outputs at the perception, prediction, and planning stages with text features explaining the driving reasoning process produced by VLMs. By encouraging alignment in latent space, VERDI enables the modular AD stack to internalize structured reasoning, without incurring the inference-time costs of large VLMs. We demonstrate the effectiveness of our method on the NuScenes dataset and find that VERDI outperforms existing e2e methods that do not embed reasoning by 10% in in \( \ell_2 \) distance, while maintaining high inference speed.
+        While autonomous driving (AD) stacks struggle with decision making under partial observability and real-world complexity, human drivers are capable of applying commonsense reasoning to make near-optimal decisions with limited information. Recent work has attempted to leverage finetuned Vision-Language Models (VLMs) for trajectory planning at inference time to emulate human behavior, but the long inference time makes them impractical to deploy. To bridge this gap, we propose <strong>V</strong>LM-<strong>E</strong>mbedded <strong>R</strong>easoning for autonomous <strong>D</strong>r<strong>I</strong>ving (<strong>VERDI</strong>), a training-time framework that distills the reasoning process and commonsense knowledge of VLMs into the AD stack. VERDI augments modular differentiable end-to-end (e2e) AD models by aligning intermediate module outputs at the perception, prediction, and planning stages with text features explaining the driving reasoning process produced by VLMs. We demonstrate the effectiveness of our method on the NuScenes dataset and find that VERDI outperforms existing e2e methods that do not embed reasoning by 10% in \( \ell_{2} \) distance, while maintaining high inference speed.
       </p>
       <br>
       <video id="summary-video" class="shadow" controls preload="metadata" width="100%" poster="static/video.png">
@@ -182,9 +182,9 @@
     <h2 class="title is-4 has-text-centered">VLM Reasoning Module</h2>
     <div class="columns is-vcentered">
       <div class="column is-4 content-container">
-        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior. <br>
-        <br>
-          For perception, we ask the VLM to label agents and objects from left to right and front to back to avoid spatial confusion or redundancy. For prediction, we provide the perception answer and ask the VLM to answer in the order the agents were listed.</p>
+        <p>To acquire language features, we use the ground truth trajectory to query a VLM for the reasoning process behind the driving behavior.
+          We ask in the order of perception, prediction, and planning, about other agents and objects in spatial order, other agents' behavior, and the ego vehicle's behavior.
+          After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
       </div>
       <div class="column is-8">
         <figure class="image">
@@ -192,7 +192,7 @@
         </figure>
       </div>
     </div>
-    <p style="margin: top -10px;">For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions. After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p>
+    <!-- <p style="margin: top -10px;">For planning, we provide answers from preceding modules, and ask the VLM to choose from a comprehensive list of actions. After obtaining textual responses from the VLM, we map them to the latent space with a language encoder.</p> -->
   </div>
 </section>
 
