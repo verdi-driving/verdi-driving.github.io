@@ -1,11 +1,18 @@
-# Nerfies
+# VERDI
 
-This is the repository that contains source code for the [Verdi website](https://nerfies.github.io).
+This is the repository that contains source code for the [Verdi website](https://verdi-driving.github.io).
 
 If you find Verdi useful for your work please cite:
 ```
-@article{
-}
+@misc{feng2025verdivlmembeddedreasoningautonomous,
+        title={VERDI: VLM-Embedded Reasoning for Autonomous Driving}, 
+        author={Bowen Feng and Zhiting Mei and Baiang Li and Julian Ost and Roger Girgis and Anirudha Majumdar and Felix Heide},
+        year={2025},
+        eprint={2505.15925},
+        archivePrefix={arXiv},
+        primaryClass={cs.RO},
+        url={https://arxiv.org/abs/2505.15925}, 
+  }
 ```
 
 # Website License
