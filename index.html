@@ -80,10 +80,10 @@
     #BibTeX.section{padding-top:0.1rem;}        /* tighten above BibTeX */
   </style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  </script> -->
   <script>
     window.addEventListener('load', () => {
       if (window.MathJax) {
@@ -164,7 +164,7 @@
     <div class="container is-max-desktop content-container">
       <h2 class="title is-3 has-text-centered">Abstract</h2>
       <p>
-        While autonomous driving (AD) stacks struggle with decision making under partial observability and real-world complexity, human drivers are capable of applying commonsense reasoning to make near-optimal decisions with limited information. Recent work has attempted to leverage finetuned Vision-Language Models (VLMs) for trajectory planning at inference time to emulate human behavior, but the long inference time makes them impractical to deploy. To bridge this gap, we propose <strong>V</strong>LM-<strong>E</strong>mbedded <strong>R</strong>easoning for autonomous <strong>D</strong>r<strong>I</strong>ving (<strong>VERDI</strong>), a training-time framework that distills the reasoning process and commonsense knowledge of VLMs into the AD stack. VERDI augments modular differentiable end-to-end (e2e) AD models by aligning intermediate module outputs at the perception, prediction, and planning stages with text features explaining the driving reasoning process produced by VLMs. We demonstrate the effectiveness of our method on the NuScenes dataset and find that VERDI outperforms existing e2e methods that do not embed reasoning by 10% in \( \ell_{2} \) distance, while maintaining high inference speed.
+        While autonomous driving (AD) stacks struggle with decision making under partial observability and real-world complexity, human drivers are capable of applying commonsense reasoning to make near-optimal decisions with limited information. Recent work has attempted to leverage finetuned Vision-Language Models (VLMs) for trajectory planning at inference time to emulate human behavior, but the long inference time makes them impractical to deploy. To bridge this gap, we propose <strong>V</strong>LM-<strong>E</strong>mbedded <strong>R</strong>easoning for autonomous <strong>D</strong>r<strong>I</strong>ving (<strong>VERDI</strong>), a training-time framework that distills the reasoning process and commonsense knowledge of VLMs into the AD stack. VERDI augments modular differentiable end-to-end (e2e) AD models by aligning intermediate module outputs at the perception, prediction, and planning stages with text features explaining the driving reasoning process produced by VLMs. We demonstrate the effectiveness of our method on the NuScenes dataset and find that VERDI outperforms existing e2e methods that do not embed reasoning by 10% in <img src="static/l2.svg" alt="ℓ₂" style="display: inline; height: 1em; vertical-align: baseline;"> distance, while maintaining high inference speed.
       </p>
       <br>
       <video id="summary-video" class="shadow" controls preload="metadata" width="100%" poster="static/video.png">
@@ -300,37 +300,37 @@
     <tr>
       <th>Method</th>
       <th>Requires VLM<br>@ Inference</th>
-      <th>FPS \( \uparrow \)</th>
-      <th><em>\( \ell_2 \)</em> (1s) \( \downarrow \)</th>
-      <th><em>\( \ell_2 \)</em> (2s) \( \downarrow \)</th>
-      <th><em>\( \ell_2 \)</em> (3s) \( \downarrow \)</th>
-      <th><em>\( \ell_2 \)</em> (avg.) \( \downarrow \)</th>
+      <th>FPS ↑</th>
+      <th><em><img src="static/l2.svg" alt="ℓ₂" style="display: inline; height: 1em; vertical-align: baseline;"></em> (1s) ↓</th>
+      <th><em><img src="static/l2.svg" alt="ℓ₂" style="display: inline; height: 1em; vertical-align: baseline;"></em> (2s) ↓</th>
+      <th><em><img src="static/l2.svg" alt="ℓ₂" style="display: inline; height: 1em; vertical-align: baseline;"></em> (3s) ↓</th>
+      <th><em><img src="static/l2.svg" alt="ℓ₂" style="display: inline; height: 1em; vertical-align: baseline;"></em> (avg.) ↓</th>
       <th>Ego Status</th>
     </tr>
   </thead>
   <tr>
     <td><a href="https://tsinghua-mars-lab.github.io/DriveVLM/">DriveVLM</a></td>
-    <td>\( \checkmark \)</td>
+    <td>&#x2713;</td>
     <td>2.43</td>
     <td>0.18</td>
     <td>0.34</td>
     <td>0.68</td>
     <td>0.40</td>
-    <td>\( \checkmark \)</td>
+    <td>&#x2713;</td>
   </tr>
   <tr>
     <td><a href="https://arxiv.org/abs/2412.15208">OpenEMMA</a></td>
-    <td>\( \checkmark \)</td>
+    <td>&#x2713;</td>
     <td>NA</td>
     <td>1.45</td>
     <td>3.21</td>
     <td>3.76</td>
     <td>2.81</td>
-    <td>\( \checkmark \)</td>
+    <td>&#x2713;</td>
   </tr>
   <tr class="midrule">
     <td><a href="https://arxiv.org/abs/2405.01533">OmniDrive</a></span></td>
-    <td>\( \checkmark \)</td>
+    <td>&#x2713;</td>
     <td>0.44</td>
     <td>1.15</td>
     <td>1.96</td>
