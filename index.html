@@ -25,18 +25,18 @@
     .section-gray{background:#f7f7f7;}
 
     /* --- TYPOGRAPHY & LINKS --- */
-    .task-title{margin-bottom:1rem;font-weight:600;}
-    .publication-authors{margin-bottom:1rem;} /* space below authors */
+    .task-title {margin-bottom:1rem;font-weight:600;}
+    .publication-authors {margin-bottom:1rem;} /* space below authors */
     .publication-authors a{color:#3273dc;text-decoration:none;white-space:nowrap;}
     .publication-authors a:hover{text-decoration:underline;}
 
     /* --- HERO & SPACING TWEAKS --- */
-    .hero{padding-bottom:0.0rem;} /* tighter gap above overview */
-    #overview.section{padding-top:0.0rem;} /* tighter gap below hero */
-    .publication-links{margin-top:1.5rem;margin-bottom:1.5rem;} /* gap between authors/icons & icons/logo */
-    figure.lab-logo{margin-top:1.5rem;} /* gap between icons and Princeton logo */
+    .hero {padding-bottom:0.0rem;} /* tighter gap above overview */
+    #overview.section {padding-top:0.0rem;} /* tighter gap below hero */
+    .publication-links {margin-top:1.5rem;margin-bottom:1.5rem;} /* gap between authors/icons & icons/logo */
+    figure.lab-logo {margin-top:1.5rem;} /* gap between icons and Princeton logo */
     /* #sim-robot.section{padding-bottom:0.1rem;} gap above simulation section */
-    #bibtex.section-{padding-top:0rem;} /* gap above BibTeX section */
+    #bibtex.section- {padding-top:0rem;} /* gap above BibTeX section */
 
     /* --- SLICK ARROWS --- */
     .slick-prev:before,.slick-next:before{color:#3273dc;font-size:32px;}
@@ -152,7 +152,7 @@
   <section id="overview" class="section">
     <div class="container is-max-desktop content-container has-text-centered" style="margin-top:-3rem">
       <video class="overview-video" autoplay loop muted playsinline poster="static/anchor.png">
-        <source src="static/Anchor.mov" type="video/mp4" />
+        <source src="static/Anchor.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <p style="margin-top:0rem;">In autonomous driving, we aim to achieve both (1) <strong>fast online planning</strong> with a modularized differentiable end-to-end (e2e) architecture, and (2) <strong>human-like reasoning process</strong> with a vision-language model (VLM). Our key idea is to distill the reasoning process and commonsense knowledge from a VLM to the e2e driving model.</p>
@@ -227,12 +227,12 @@
 <!-- ==== Driving feature ==== -->
 <section id="e2e" class="section">
   <div class="container is-max-desktop content-container">
-    <h2 class="title is-4 has-text-centered">Aligning with the e2e Model</h3>
+    <h2 class="title is-4 has-text-centered">Aligning with the e2e Model</h2>
     <p style="margin-top:0rem;">To obtain driving features, we introduce a learnable Progressive Feature Projector (PFP) to each of the perception, prediction, and planning submodules. The PFPs map driving features to the same latent space as the language features, and align them with a cosine similarity loss.</p>
   </div>
   <div class="container is-max-desktop">
     <video class="overview-video" autoplay loop muted playsinline poster="static/e2e.png">
-      <source src="static/e2e.mov" type="video/mp4" />
+      <source src="static/e2e.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
@@ -391,6 +391,8 @@
   }</code></pre>
     </div>
   </section>
+
+
   <br>
   <center class="is-size-10">
     The website design was adapted from <a href="https://nerfies.github.io" class="external-link"><span
